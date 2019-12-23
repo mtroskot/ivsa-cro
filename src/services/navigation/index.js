@@ -1,4 +1,5 @@
 import { NavigationActions, StackActions } from 'react-navigation';
+import { DrawerActions } from 'react-navigation-drawer';
 
 let navigator;
 
@@ -50,6 +51,14 @@ function goBack() {
   navigator.dispatch(NavigationActions.back());
 }
 
+function closeDrawer() {
+  navigator.dispatch(DrawerActions.closeDrawer());
+}
+
+function openDrawer() {
+  navigator.dispatch(DrawerActions.openDrawer());
+}
+
 function getCurrentRoute() {
   let route = navigator.state.nav;
   while (route.routes) {
@@ -67,5 +76,7 @@ export default {
   reset,
   popToTop,
   goBack,
-  getCurrentRoute
+  getCurrentRoute,
+  closeDrawer,
+  openDrawer
 };

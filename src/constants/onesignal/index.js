@@ -1,0 +1,4 @@
+export const FIRE_API_KEY = 'AIzaSyAEt4-MRr5pK8aZBFMNPV5nK7SeEP4gF88';
+export const FIRE_DB_KEY = 'yGxnBdFeIoULUym5z5BoTlcl3lfDx1iizbH4XRSx';
+export const ONESIGNAL_APP_ID = 'b22f1482-9ece-432c-b408-53ca7f3a686b';
+export const ONESIGNAL_REST_API_KEY = 'ZWVlNmU1ZjgtNzVjNS00OGM2LThjNWMtMDQyYjA3ZDMwODk0';
