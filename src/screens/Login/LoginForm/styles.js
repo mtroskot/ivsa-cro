@@ -5,13 +5,14 @@ const { rem } = dimensions;
 const styles = StyleSheet.create({
   inputContainer: {
     width: '80%',
+    alignSelf: 'center',
     alignItems: 'center'
   },
   input: {
+    width: '100%',
     backgroundColor: '#eee',
     borderColor: '#bbb',
-    margin: 10 * rem,
-    height: 45 * rem
+    margin: 10 * rem
   },
   loader: {
     marginTop: 35 * rem

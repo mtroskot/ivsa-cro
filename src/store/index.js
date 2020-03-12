@@ -7,7 +7,7 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from 'src/store/sagas/rootSaga';
 import additionalMiddlewares from 'src/store/middlewares';
 import rootReducer from 'src/store/reducers/rootReducer';
-
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 // encryption
 const encryptor = createEncryptor({
   secretKey: 'mtroskot.ivsa-cro.encrypt',
@@ -22,7 +22,8 @@ const persistConfig = {
   key: 'mtroskot.ivsa-cro',
   storage: AsyncStorage,
   blacklist: ['ui'], //  will not be persisted,
-  transforms: [encryptor]
+  transforms: [encryptor],
+  stateReconciler: autoMergeLevel2
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

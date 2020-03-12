@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import locales from 'src/constants/localization';
 import styles from 'src/screens/newsStack/News/NoNews/styles';
 

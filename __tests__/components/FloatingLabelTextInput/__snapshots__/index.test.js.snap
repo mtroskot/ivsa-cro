@@ -1,0 +1,168 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FloatingLabelTextInput wrapper FloatingLabelTextInput renders value and placeholder without floatingLabel 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#F5F6F7",
+        "borderColor": "#DFE5EA",
+        "borderRadius": 9.868421052631579,
+        "borderWidth": 1.9736842105263157,
+        "height": 118.42105263157895,
+        "marginBottom": 19.736842105263158,
+        "width": "90%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+        "marginBottom": 19.736842105263158,
+        "paddingLeft": 29.605263157894736,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      placeholder="placeholder"
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#334144",
+            "fontSize": 31.57894736842105,
+            "padding": 0,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value="value"
+    />
+  </View>
+</View>
+`;
+
+exports[`FloatingLabelTextInput wrapper FloatingLabelTextInput renders value without label,floatingLabel 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#F5F6F7",
+        "borderColor": "#DFE5EA",
+        "borderRadius": 9.868421052631579,
+        "borderWidth": 1.9736842105263157,
+        "height": 118.42105263157895,
+        "marginBottom": 19.736842105263158,
+        "width": "90%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+        "marginBottom": 19.736842105263158,
+        "paddingLeft": 29.605263157894736,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#334144",
+            "fontSize": 31.57894736842105,
+            "padding": 0,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value="value"
+    />
+  </View>
+</View>
+`;
+
+exports[`FloatingLabelTextInput wrapper FloatingLabelTextInput renders with label and value 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#F5F6F7",
+        "borderColor": "#DFE5EA",
+        "borderRadius": 9.868421052631579,
+        "borderWidth": 1.9736842105263157,
+        "height": 118.42105263157895,
+        "marginBottom": 19.736842105263158,
+        "width": "90%",
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "flex-end",
+        "marginBottom": 19.736842105263158,
+        "paddingLeft": 29.605263157894736,
+      }
+    }
+  >
+    <AnimatedComponent
+      style={
+        Object {
+          "color": "#949EA0",
+          "fontSize": 25.657894736842103,
+          "left": 29.605263157894736,
+          "paddingBottom": 9.868421052631579,
+          "position": "absolute",
+        }
+      }
+    >
+      floatingLabel
+    </AnimatedComponent>
+    <TextInput
+      allowFontScaling={true}
+      onBlur={[Function]}
+      onChangeText={[MockFunction]}
+      onFocus={[Function]}
+      rejectResponderTermination={true}
+      style={
+        Array [
+          Object {
+            "color": "#334144",
+            "fontSize": 31.57894736842105,
+            "padding": 0,
+          },
+          undefined,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value="value"
+    />
+  </View>
+</View>
+`;

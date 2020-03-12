@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton wrapper IconButton renders correctly   1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  disabled={false}
+  hitSlop={
+    Object {
+      "bottom": 20,
+      "left": 20,
+      "right": 20,
+      "top": 20,
+    }
+  }
+  onPress={[MockFunction]}
+>
+  <Icon
+    allowFontScaling={false}
+    name="ios-icon"
+    size={59.21052631578947}
+  />
+</TouchableOpacity>
+`;

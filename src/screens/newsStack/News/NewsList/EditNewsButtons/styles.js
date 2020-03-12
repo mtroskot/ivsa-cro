@@ -8,6 +8,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     marginTop: 20 * rem
   },
+  indicator: {
+    justifyContent: 'center',
+    width: 80 * rem
+  },
   buttonView: {
     backgroundColor: '#d60000',
     flexDirection: 'row',

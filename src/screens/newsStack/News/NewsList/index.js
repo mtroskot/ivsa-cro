@@ -2,41 +2,37 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import EditNewsButtons from 'src/screens/newsStack/News/NewsList/EditNewsButtons';
 import PropTypes from 'prop-types';
-import styles from 'src/screens/newsStack/News/NewsList/styles';
 import { newsPropTypes } from 'src/constants/propTypes';
+import styles from 'src/screens/newsStack/News/NewsList/styles';
 
 const NewsList = props => {
-  const { pagedNews, isAuthenticated, keyFromNotification, editNews, deleteNewsAlert } = props;
-  const newsArray = [];
-  Object.keys(pagedNews).forEach(key => {
+  const { pagedNews, isAuthenticated, deletingNewsId, newsIdFromNotification, editNews, deleteNewsAlert } = props;
+  return Object.keys(pagedNews).map((key, index) => {
     const { date, publishedBy, notice } = pagedNews[key];
-    newsArray.push(
+    return (
       <View
         key={key}
         style={[
           styles.noticeView,
-          newsArray.length === 0 ? styles.firstNews : null,
-          key === keyFromNotification ? styles.highlightedNews : null
+          index.length === 0 ? styles.firstNews : null,
+          key === newsIdFromNotification ? styles.highlightedNews : null
         ]}>
-        <Text style={styles.author}>{publishedBy}</Text>
-        <Text style={styles.contentStyle}>{notice}</Text>
-        <Text style={styles.dateStyle}>{date}</Text>
-        <EditNewsButtons
-          {...{ newsId: key, isAuthenticated, editNews, deleteNewsAlert }}
-          isAuthenticated={isAuthenticated}
-          editNews={editNews}
-          deleteNewsAlert={deleteNewsAlert}
-        />
+        <View style={styles.newsText}>
+          <Text style={styles.author}>{publishedBy}</Text>
+          <Text style={styles.contentStyle}>{notice}</Text>
+          <Text style={styles.dateStyle}>{date}</Text>
+        </View>
+        <EditNewsButtons {...{ newsId: key, isAuthenticated, deletingNewsId, editNews, deleteNewsAlert }} />
       </View>
     );
   });
-  return newsArray;
 };
 
 NewsList.propTypes = {
-  pagedNews: newsPropTypes.isRequired,
+  pagedNews: PropTypes.objectOf(newsPropTypes).isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
-  keyFromNotification: PropTypes.string,
+  deletingNewsId: PropTypes.string,
+  newsIdFromNotification: PropTypes.string,
   editNews: PropTypes.func.isRequired,
   deleteNewsAlert: PropTypes.func.isRequired
 };

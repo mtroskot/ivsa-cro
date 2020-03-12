@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   listItemTextStyle: {
     fontSize: 20 * rem,
-    color: 'black',
+    color: 'black'
   }
 });
 

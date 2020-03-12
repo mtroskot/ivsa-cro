@@ -12,7 +12,7 @@ const PickerLocations = props => {
       <Text style={styles.dropdownLabel}>{locales.mapDropdownLabel}</Text>
       <Picker selectedValue={selectedOption} style={styles.picker} onValueChange={handlePickerChange}>
         {pickerItems.map(item => (
-          <Picker.Item key={item.value} label={item.label} value={item.value} />
+          <Picker.Item key={item.value} label={locales[item.label]} value={item.value} />
         ))}
       </Picker>
     </View>

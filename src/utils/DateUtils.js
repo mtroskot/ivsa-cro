@@ -17,6 +17,22 @@ function getLocalizedDate(eventsArray) {
   });
 }
 
+/**
+ * Generates a string date in dd.mm.yyyy hh:mm format
+ * @returns {string}
+ */
+function getFormattedDate() {
+  const date = new Date();
+  const day = date.getUTCDate();
+  const month = date.getUTCMonth() + 1; //months from 1-12
+  const year = date.getUTCFullYear();
+  let datetext = date.toTimeString();
+  datetext = datetext.split(' ')[0];
+  const hoursAndMinutes = datetext.substring(0, 5);
+  return `${day}.${month}.${year} ${hoursAndMinutes}`;
+}
+
 export default {
-  getLocalizedDate
+  getLocalizedDate,
+  getFormattedDate
 };

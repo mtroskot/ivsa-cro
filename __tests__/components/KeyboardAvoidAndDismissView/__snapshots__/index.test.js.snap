@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KeyboardAvoidAndDismissView wrapper KeyboardAvoidAndDismissView renders correctly   1`] = `
+<TouchableWithoutFeedback
+  onPress={[MockFunction]}
+>
+  <KeyboardAvoidingView
+    behavior="padding"
+    enabled={true}
+    keyboardVerticalOffset={0}
+  >
+    <View>
+      <Text>
+        Hello World
+      </Text>
+    </View>
+  </KeyboardAvoidingView>
+</TouchableWithoutFeedback>
+`;

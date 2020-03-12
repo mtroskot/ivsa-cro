@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error404 wrapper Error404 renders correctly   1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../src/assets/images/emoji/sadFace.png",
+      }
+    }
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "height": 394.7368421052631,
+        "width": 394.7368421052631,
+      }
+    }
+  />
+  <Text
+    style={
+      Object {
+        "fontSize": 39.473684210526315,
+        "textAlign": "center",
+      }
+    }
+  >
+    Oops Something went wrong
+  </Text>
+</View>
+`;

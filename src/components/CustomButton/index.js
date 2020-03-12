@@ -16,7 +16,7 @@ const CustomButton = props => {
       <Icon
         name={AppUtils.getIconForPlatform(iconProps.name)}
         size={iconProps.size || 30 * rem}
-        color={iconProps.color}
+        color={iconProps.color || '#fff'}
       />
     </View>
   ) : null;
@@ -51,6 +51,7 @@ CustomButton.propTypes = {
       return new Error(`Icon or text is required in ${componentName}`);
     }
   },
+  onPress: PropTypes.func.isRequired,
   iconProps: PropTypes.exact({
     name: PropTypes.string.isRequired,
     size: PropTypes.number,
@@ -63,7 +64,6 @@ CustomButton.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   textStyle: PropTypes.object,
   iconStyle: ViewPropTypes.style,
-  onPress: PropTypes.func.isRequired
 };
 
 export default React.memo(CustomButton);

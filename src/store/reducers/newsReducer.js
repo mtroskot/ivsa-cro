@@ -1,17 +1,28 @@
-import { newsActions } from 'src/constants/store/actionTypes';
+import { newsActionTypes } from 'src/constants/actionTypes';
 
-const intialState = {};
+//initialState.cachedNews will be a 'object array', e.g {a:{},b:{},c:{}}
+export const initialState = {
+  cachedNews: {},
+  lastUpdate: 0,
+  error: null
+};
 
-const newsReducer = (state = intialState, { type, payload }) => {
+const newsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case newsActions.UPDATE_NEWS_SUCCESS:
-    case newsActions.PUBLISH_NEWS_SUCCESS:
-      const { date, publishedBy, notice, key } = payload;
+    case newsActionTypes.FETCH_NEWS_SUCCESS:
+    case newsActionTypes.PUBLISH_NEWS_SUCCESS:
+    case newsActionTypes.DELETE_NEWS_SUCCESS:
+    case newsActionTypes.UPDATE_NEWS_SUCCESS:
       return {
-        key,
-        date,
-        publishedBy,
-        notice
+        ...state,
+        cachedNews: payload.news,
+        lastUpdate: payload.lastUpdate,
+        error: null
+      };
+    case newsActionTypes.FETCH_NEWS_ERROR:
+      return {
+        ...state,
+        error: payload.error
       };
     default:
       return state;

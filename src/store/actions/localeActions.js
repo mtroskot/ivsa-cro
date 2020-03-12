@@ -1,14 +1,14 @@
-import { localeActions } from 'src/constants/store/actionTypes';
+import { localeActionTypes } from 'src/constants/actionTypes';
 
 export function changeLocale(locale) {
   return {
-    type: localeActions.CHANGE_LOCALE,
+    type: localeActionTypes.CHANGE_LOCALE,
     payload: { locale }
   };
 }
 export function changeLocaleSuccess(locale) {
   return {
-    type: localeActions.CHANGE_LOCALE_SUCCESS,
+    type: localeActionTypes.CHANGE_LOCALE_SUCCESS,
     payload: { locale }
   };
 }

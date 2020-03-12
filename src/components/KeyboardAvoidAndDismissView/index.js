@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, ViewPropTypes } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, TouchableWithoutFeedback, ViewPropTypes } from 'react-native';
 import PropTypes from 'prop-types';
 
 const KeyboardAvoidAndDismissView = ({ viewStyle, children, avoidKeyboard, behavior }) => (

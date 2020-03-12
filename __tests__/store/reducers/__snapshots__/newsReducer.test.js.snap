@@ -1,0 +1,385 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DELETE_NEWS_SUCCESS_STATE 1returns initial state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 2,
+}
+`;
+
+exports[`DELETE_NEWS_SUCCESS_STATE 2returns fetchNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`DELETE_NEWS_SUCCESS_STATE 3returns publishNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`DELETE_NEWS_SUCCESS_STATE 4returns deleteNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`DELETE_NEWS_SUCCESS_STATE 5returns updateNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`DELETE_NEWS_SUCCESS_STATE 6returns fetchNewsError state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": "error",
+  "lastUpdate": 2,
+}
+`;
+
+exports[`FETCH_NEWS_ERROR_STATE 1returns initial state 1`] = `
+Object {
+  "cachedNews": Object {},
+  "error": "error",
+  "lastUpdate": 0,
+}
+`;
+
+exports[`FETCH_NEWS_ERROR_STATE 2returns fetchNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_ERROR_STATE 3returns publishNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_ERROR_STATE 4returns deleteNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_ERROR_STATE 5returns updateNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_ERROR_STATE 6returns fetchNewsError state 1`] = `
+Object {
+  "cachedNews": Object {},
+  "error": "error2",
+  "lastUpdate": 0,
+}
+`;
+
+exports[`FETCH_NEWS_SUCCESS_STATE 1returns initial state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 2,
+}
+`;
+
+exports[`FETCH_NEWS_SUCCESS_STATE 2returns fetchNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_SUCCESS_STATE 3returns publishNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_SUCCESS_STATE 4returns deleteNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_SUCCESS_STATE 5returns updateNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`FETCH_NEWS_SUCCESS_STATE 6returns fetchNewsError state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": "error",
+  "lastUpdate": 2,
+}
+`;
+
+exports[`INITIAL_STATE 1returns initial state 1`] = `
+Object {
+  "cachedNews": Object {},
+  "error": null,
+  "lastUpdate": 0,
+}
+`;
+
+exports[`INITIAL_STATE 2returns fetchNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 1,
+}
+`;
+
+exports[`INITIAL_STATE 3returns publishNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 1,
+}
+`;
+
+exports[`INITIAL_STATE 4returns deleteNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 1,
+}
+`;
+
+exports[`INITIAL_STATE 5returns updateNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 1,
+}
+`;
+
+exports[`INITIAL_STATE 6returns fetchNewsError state 1`] = `
+Object {
+  "cachedNews": Object {},
+  "error": "error",
+  "lastUpdate": 0,
+}
+`;
+
+exports[`PUBLISH_NEWS_SUCCESS_STATE 1returns initial state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 2,
+}
+`;
+
+exports[`PUBLISH_NEWS_SUCCESS_STATE 2returns fetchNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`PUBLISH_NEWS_SUCCESS_STATE 3returns publishNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`PUBLISH_NEWS_SUCCESS_STATE 4returns deleteNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`PUBLISH_NEWS_SUCCESS_STATE 5returns updateNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`PUBLISH_NEWS_SUCCESS_STATE 6returns fetchNewsError state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": "error",
+  "lastUpdate": 2,
+}
+`;
+
+exports[`UPDATE_NEWS_SUCCESS_STATE 1returns initial state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": null,
+  "lastUpdate": 2,
+}
+`;
+
+exports[`UPDATE_NEWS_SUCCESS_STATE 2returns fetchNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`UPDATE_NEWS_SUCCESS_STATE 3returns publishNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`UPDATE_NEWS_SUCCESS_STATE 4returns deleteNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`UPDATE_NEWS_SUCCESS_STATE 5returns updateNewsSuccess state 1`] = `
+Object {
+  "cachedNews": Object {
+    "3": Object {},
+    "4": Object {},
+  },
+  "error": null,
+  "lastUpdate": 3,
+}
+`;
+
+exports[`UPDATE_NEWS_SUCCESS_STATE 6returns fetchNewsError state 1`] = `
+Object {
+  "cachedNews": Object {
+    "1": Object {},
+    "2": Object {},
+  },
+  "error": "error",
+  "lastUpdate": 2,
+}
+`;

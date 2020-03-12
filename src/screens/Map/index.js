@@ -1,19 +1,20 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Alert, Linking, Platform, View } from 'react-native';
-import Mapbox from '@react-native-mapbox-gl/maps';
+import PickerLocations from 'src/screens/Map/PickerLocations';
+import NavigationLocations from 'src/screens/Map/NavigationLocations';
 import MapView from 'src/screens/Map/MapView';
-import { check, PERMISSIONS, request, RESULTS } from 'react-native-permissions';
-
+import Mapbox from '@react-native-mapbox-gl/maps';
+import { PERMISSIONS, RESULTS, check, request } from 'react-native-permissions';
 import locales from 'src/constants/localization';
 import { mapboxToken } from 'src/constants/map';
 import styles from 'src/screens/Map/styles';
-import PickerLocations from 'src/screens/Map/PickerLocations';
-import NavigationLocations from 'src/screens/Map/NavigationLocations';
 
 Mapbox.setAccessToken(mapboxToken);
+
 const MapScreen = () => {
   const [selectedOption, setSelectedOption] = useState(0);
   const [showUserLocation, setShowUserLocation] = useState(false);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
     checkPermissions();
@@ -60,7 +61,6 @@ const MapScreen = () => {
     } else {
       alert(locales.mapLocationAlert);
     }
-    console.log('', response);
   };
 
   const handlePickerChange = selectedOption => {
@@ -74,7 +74,7 @@ const MapScreen = () => {
     Linking.canOpenURL(url)
       .then(supported => {
         if (!supported) {
-          console.log("Can't handle url: " + url);
+          console.log(`Can't handle url: ${url}`);
         } else {
           return Linking.openURL(url);
         }
@@ -99,13 +99,13 @@ const MapScreen = () => {
       { cancelable: true }
     );
   };
-
+  //RENDER
   return (
     <View style={styles.container}>
       <MapView {...{ showUserLocation, selectedOption }} />
       <View style={styles.pickerLocationView}>
         <PickerLocations {...{ selectedOption, handlePickerChange, onNavigateRequest }} />
-        <NavigationLocations {...{ selectedOption, onNavigateRequest }} />
+        <NavigationLocations {...{ selectedOption, onNavigateRequest, scrollRef }} />
       </View>
     </View>
   );

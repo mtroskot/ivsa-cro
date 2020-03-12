@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { CustomButton, DefaultInput, Loader } from 'src/components';
+import { CustomButton, FloatingLabelTextInput, Loader } from 'src/components';
 import locales from 'src/constants/localization';
 import PropTypes from 'prop-types';
 import styles from 'src/screens/Login/LoginForm/styles';
@@ -16,10 +16,10 @@ const LoginForm = props => {
   const { email, password, isLoading, textInputRef, handleFieldInput, authHandler } = props;
   return (
     <View style={styles.inputContainer}>
-      <DefaultInput
+      <FloatingLabelTextInput
         onSubmitEditing={() => textInputRef.current.focus()}
-        style={styles.input}
-        placeholder={locales.email}
+        customContainerStyle={styles.input}
+        floatingLabel={locales.email}
         value={email}
         autoComplete={'off'}
         autoCorrect={false}
@@ -29,11 +29,11 @@ const LoginForm = props => {
         autoFocus={false}
         keyboardType={'email-address'}
       />
-      <DefaultInput
+      <FloatingLabelTextInput
         textInputRef={textInputRef}
-        style={styles.input}
-        placeholder={locales.password}
+        floatingLabel={locales.password}
         value={password}
+        customContainerStyle={styles.input}
         autoCorrect={false}
         secureTextEntry={true}
         onChangeText={value => handleFieldInput(value, 'password')}
@@ -49,7 +49,7 @@ LoginForm.propTypes = {
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
-  textInputRef: PropTypes.shape({ current: PropTypes.elementType }),
+  textInputRef: PropTypes.shape({ current: PropTypes.any }).isRequired,
   handleFieldInput: PropTypes.func.isRequired,
   authHandler: PropTypes.func.isRequired
 };

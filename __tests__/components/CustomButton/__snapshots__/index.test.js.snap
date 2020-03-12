@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomButton wrapper CustomButton renders button with icon or text,icon on the left 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[MockFunction]}
+>
+  <View>
+    <View>
+      <Icon
+        allowFontScaling={false}
+        color="#fff"
+        name="ios-menu"
+        size={59.21052631578947}
+      />
+    </View>
+    <Text>
+      text
+    </Text>
+  </View>
+</TouchableOpacity>
+`;
+
+exports[`CustomButton wrapper CustomButton renders button with icon or text,icon on the right 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[MockFunction]}
+>
+  <View>
+    <Text>
+      text
+    </Text>
+    <View>
+      <Icon
+        allowFontScaling={false}
+        color="#fff"
+        name="ios-menu"
+        size={59.21052631578947}
+      />
+    </View>
+  </View>
+</TouchableOpacity>
+`;
+
+exports[`CustomButton wrapper CustomButton renders button with icon, no text 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[MockFunction]}
+>
+  <View>
+    <View>
+      <Icon
+        allowFontScaling={false}
+        color="#fff"
+        name="md-menu"
+        size={59.21052631578947}
+      />
+    </View>
+  </View>
+</TouchableOpacity>
+`;
+
+exports[`CustomButton wrapper CustomButton renders button with text, no icon 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  onPress={[MockFunction]}
+>
+  <View>
+    <Text>
+      text
+    </Text>
+  </View>
+</TouchableOpacity>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Locale actions tests dispatches changeLocale action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "locale": "en",
+    },
+    "type": "CHANGE_LOCALE",
+  },
+]
+`;
+
+exports[`Locale actions tests dispatches requestInProgressStart action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "locale": "de",
+    },
+    "type": "CHANGE_LOCALE_SUCCESS",
+  },
+]
+`;

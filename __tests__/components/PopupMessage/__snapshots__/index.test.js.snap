@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PopupMessage wrapper PopupMessage renders correctly,message at bottom 1`] = `
+<AnimatedComponent
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#4c4c4c",
+        "borderRadius": 39.473684210526315,
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 21.710526315789473,
+        "position": "absolute",
+        "zIndex": 2,
+      },
+      Object {
+        "bottom": 29.736842105263158,
+      },
+      Object {
+        "opacity": 0,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "textAlign": "center",
+      }
+    }
+  >
+    message
+  </Text>
+</AnimatedComponent>
+`;
+
+exports[`PopupMessage wrapper PopupMessage renders correctly,message on top 1`] = `
+<AnimatedComponent
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "backgroundColor": "#4c4c4c",
+        "borderRadius": 39.473684210526315,
+        "flex": 1,
+        "justifyContent": "center",
+        "padding": 21.710526315789473,
+        "position": "absolute",
+        "zIndex": 2,
+      },
+      Object {
+        "top": 138.42105263157896,
+      },
+      Object {
+        "opacity": 0,
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "white",
+        "textAlign": "center",
+      }
+    }
+  >
+    message
+  </Text>
+</AnimatedComponent>
+`;
+
+exports[`PopupMessage wrapper PopupMessage renders nothing, message is null 1`] = `""`;

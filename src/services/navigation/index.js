@@ -67,6 +67,10 @@ function getCurrentRoute() {
   return route;
 }
 
+function goBackAndOpenDrawer() {
+  goBack(), openDrawer();
+}
+
 // add other navigation functions that you need and export them
 export default {
   setTopLevelNavigator,
@@ -78,5 +82,6 @@ export default {
   goBack,
   getCurrentRoute,
   closeDrawer,
-  openDrawer
+  openDrawer,
+  goBackAndOpenDrawer
 };

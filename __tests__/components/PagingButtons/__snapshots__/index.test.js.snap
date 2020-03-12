@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PagingButtons wrapper PagingButtons renders with label and value 1`] = `
+<View
+  style={
+    Object {
+      "flexGrow": 1,
+      "justifyContent": "flex-end",
+      "marginVertical": 39.473684210526315,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Memo(CustomButton)
+      key="1"
+      onPress={[Function]}
+      tOpacityStyle={
+        Array [
+          Object {
+            "backgroundColor": "#f4f4f4",
+            "borderRadius": 9.868421052631579,
+            "borderWidth": 1,
+            "padding": 19.736842105263158,
+          },
+          Object {
+            "backgroundColor": "#bababa",
+          },
+        ]
+      }
+      text="1"
+    />
+    <Memo(CustomButton)
+      key="2"
+      onPress={[Function]}
+      tOpacityStyle={
+        Array [
+          Object {
+            "backgroundColor": "#f4f4f4",
+            "borderRadius": 9.868421052631579,
+            "borderWidth": 1,
+            "padding": 19.736842105263158,
+          },
+          Object {
+            "backgroundColor": "#f4f4f4",
+          },
+        ]
+      }
+      text="2"
+    />
+    <Memo(CustomButton)
+      key=">"
+      onPress={[Function]}
+      tOpacityStyle={
+        Array [
+          Object {
+            "backgroundColor": "#f4f4f4",
+            "borderRadius": 9.868421052631579,
+            "borderWidth": 1,
+            "padding": 19.736842105263158,
+          },
+          Object {
+            "backgroundColor": "#f4f4f4",
+          },
+        ]
+      }
+      text=">"
+    />
+  </View>
+</View>
+`;

@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem wrapper ListItem renders correctly with Image 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  hitSlop={
+    Object {
+      "bottom": 15,
+      "left": 20,
+      "right": 300,
+      "top": 15,
+    }
+  }
+  onPress={[MockFunction]}
+>
+  <Text
+    style={Object {}}
+  >
+    ListItem
+  </Text>
+  <Image
+    source="image"
+    style={Object {}}
+  />
+</TouchableOpacity>
+`;
+
+exports[`ListItem wrapper ListItem renders correctly without Image 1`] = `
+<TouchableOpacity
+  activeOpacity={0.2}
+  hitSlop={
+    Object {
+      "bottom": 15,
+      "left": 20,
+      "right": 300,
+      "top": 15,
+    }
+  }
+  onPress={[MockFunction]}
+>
+  <Text
+    style={Object {}}
+  >
+    ListItem
+  </Text>
+</TouchableOpacity>
+`;

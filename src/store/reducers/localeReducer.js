@@ -1,13 +1,16 @@
-import { localeActions } from 'src/constants/store/actionTypes';
+import { localeActionTypes } from 'src/constants/actionTypes';
 
-const initialState = {
+export const initialState = {
   currLocale: 'en'
 };
 
 const localeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case localeActions.CHANGE_LOCALE_SUCCESS:
-      return { currLocale: payload.locale };
+    case localeActionTypes.CHANGE_LOCALE_SUCCESS:
+      return {
+        ...state,
+        currLocale: payload.locale
+      };
     default:
       return state;
   }

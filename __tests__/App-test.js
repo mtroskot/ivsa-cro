@@ -1,14 +1,14 @@
-/**
- * @format
- */
-
-import 'react-native';
 import React from 'react';
-import App from '../App';
+import { shallow } from 'enzyme';
+import App from 'src/App';
 
-// Note: test renderer must be required after react-native.
-import renderer from 'react-test-renderer';
+jest.mock('src/store', () => {
+  return {};
+});
 
-it('renders correctly', () => {
-  renderer.create(<App />);
+describe('App wrapper', () => {
+  it('renders correctly', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

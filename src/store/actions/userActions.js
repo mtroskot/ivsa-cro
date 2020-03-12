@@ -1,29 +1,29 @@
-import { userActions } from 'src/constants/store/actionTypes';
+import { userActionTypes } from 'src/constants/actionTypes';
 
 export function authenticateUser(email, password) {
   return {
-    type: userActions.AUTH_USER,
+    type: userActionTypes.AUTH_USER,
     payload: { email, password }
   };
 }
 
 export const authenticateUserSuccess = (displayName, email, idToken, expiryDate) => {
   return {
-    type: userActions.AUTH_USER_SUCCESS,
+    type: userActionTypes.AUTH_USER_SUCCESS,
     payload: { displayName, email, idToken, expiryDate }
   };
 };
 
 export const authenticateUserError = error => {
   return {
-    type: userActions.AUTH_USER_ERROR,
+    type: userActionTypes.AUTH_USER_ERROR,
     payload: { error }
   };
 };
 
 export const logout = () => {
   return {
-    type: userActions.LOG_OUT,
+    type: userActionTypes.LOG_OUT,
     payload: {}
   };
 };

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Linking, ScrollView, View } from 'react-native';
+import { FlatList, Linking, View } from 'react-native';
 import ContactInfo from 'src/screens/Contacts/ContactInfo';
 import ContactButtons from 'src/screens/Contacts/ContactButtons';
-import { contacts, contactButtons } from 'src/constants/contacts';
+import { contactButtons, contacts } from 'src/constants/contacts';
 import styles from 'src/screens/Contacts/styles';
 
 const callNumber = num => {
@@ -12,11 +12,12 @@ const messageNumber = num => {
   Linking.openURL(`sms:${num}`);
 };
 
-const Contacts = props => {
+const Contacts = () => {
   return (
-    <ScrollView>
-      {contacts.map((contact, index) => (
-        <View key={index} style={styles.container}>
+    <FlatList
+      data={contacts}
+      renderItem={({ item: contact }) => (
+        <View style={styles.container}>
           <ContactInfo contact={contact} />
           <ContactButtons
             contactButtons={contactButtons}
@@ -25,8 +26,9 @@ const Contacts = props => {
             onMessageNumber={messageNumber}
           />
         </View>
-      ))}
-    </ScrollView>
+      )}
+      keyExtractor={item => item.number}
+    />
   );
 };
 

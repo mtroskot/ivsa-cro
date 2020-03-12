@@ -1,6 +1,6 @@
-import { userActions } from 'src/constants/store/actionTypes';
+import { userActionTypes } from 'src/constants/actionTypes';
 
-const initialState = {
+export const initialState = {
   userData: {
     isAuthenticated: false,
     displayName: null,
@@ -8,19 +8,12 @@ const initialState = {
     idToken: null,
     expiryDate: null
   },
-  requestInProgress: false,
   error: null
 };
 
-const userReducer = (state = initialState, action) => {
-  const { type, payload } = action;
+const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case userActions.AUTH_USER:
-      return {
-        ...state,
-        requestInProgress: true
-      };
-    case userActions.AUTH_USER_SUCCESS:
+    case userActionTypes.AUTH_USER_SUCCESS:
       const { displayName, email, idToken, expiryDate } = payload;
       return {
         ...state,
@@ -31,15 +24,14 @@ const userReducer = (state = initialState, action) => {
           idToken,
           expiryDate
         },
-        requestInProgress: false
+        error: null
       };
-    case userActions.AUTH_USER_ERROR:
+    case userActionTypes.AUTH_USER_ERROR:
       return {
         ...state,
-        requestInProgress: false,
         error: payload.error
       };
-    case userActions.LOG_OUT:
+    case userActionTypes.LOG_OUT:
       return initialState;
     default:
       return state;

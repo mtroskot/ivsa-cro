@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User actions tests dispatches authenticateUser action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "email": "email",
+      "password": "password",
+    },
+    "type": "AUTH_USER",
+  },
+]
+`;
+
+exports[`User actions tests dispatches authenticateUserError action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "error": "error",
+    },
+    "type": "AUTH_USER_ERROR",
+  },
+]
+`;
+
+exports[`User actions tests dispatches authenticateUserSuccess action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "displayName": "displayName",
+      "email": "email",
+      "expiryDate": "expiryDate",
+      "idToken": "idToken",
+    },
+    "type": "AUTH_USER_SUCCESS",
+  },
+]
+`;
+
+exports[`User actions tests dispatches logout action 1`] = `
+Array [
+  Object {
+    "payload": Object {},
+    "type": "LOG_OUT",
+  },
+]
+`;

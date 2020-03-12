@@ -61,10 +61,23 @@ function areNotEmpty(...strings) {
   return !areEmpty(...strings);
 }
 
+/**
+ * Checks if all passed arguments are strings, if not throws error
+ * @param args
+ */
+function checkIfString(...args) {
+  args.forEach((arg, index) => {
+    if (typeof arg !== 'string' && !(arg instanceof String)) {
+      throw new Error(`arg at index ${index} is not a string, type is ${typeof arg}`);
+    }
+  });
+}
+
 export default {
   getDisplayNameFromEmail,
   isNotEmpty,
   areNotEmpty,
   isEmpty,
-  areEmpty
+  areEmpty,
+  checkIfString
 };

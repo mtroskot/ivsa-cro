@@ -7,7 +7,7 @@ import { congressPlan } from 'src/constants/congress';
 import { screenNames } from 'src/constants/navigation';
 import styles from 'src/screens/congressStack/Congress/styles';
 
-const Congress = props => {
+const Congress = () => {
   const dateInfo = DateUtils.getLocalizedDate(congressPlan);
   return (
     <FlatList

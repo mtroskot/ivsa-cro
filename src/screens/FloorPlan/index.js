@@ -5,10 +5,10 @@ import floorPlanImage from 'src/assets/images/floorPlan/tlocrt.jpg';
 import { floorPlan } from 'src/constants/floorPlan';
 import styles from 'src/screens/FloorPlan/styles';
 
-const FloorPlan = props => (
+const FloorPlan = () => (
   <View style={styles.container}>
     <ScrollView>
-      <Image style={styles.image} source={floorPlanImage} resizeMode={'contain'} />
+      <Image style={styles.image} source={floorPlanImage} />
       <FloorPlanInformation floorPlan={floorPlan} />
     </ScrollView>
   </View>

@@ -1,89 +1,61 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import { togglePopupMessage } from 'src/store/actions/uiActions';
+import { deleteNews, fetchNews } from 'src/store/actions/newsActions';
 import { Alert, RefreshControl, ScrollView } from 'react-native';
 import { Error404, Loader, PagingButtons } from 'src/components';
 import NewsList from 'src/screens/newsStack/News/NewsList';
 import AddNewsButton from 'src/screens/newsStack/News/AddNewsButton';
 import NoNews from 'src/screens/newsStack/News/NoNews';
 import locales from 'src/constants/localization';
-import { ApiService, NavigationService } from 'src/services';
-import { AppUtils, ObjectUtils } from 'src/utils';
+import { NavigationService } from 'src/services';
+import { AppUtils, HooksUtils, ObjectUtils } from 'src/utils';
 import { screenNames } from 'src/constants/navigation';
 import PropTypes from 'prop-types';
-import { newsPropTypes, userPropTypes } from 'src/constants/propTypes';
+import { newsReducerPropTypes, userPropTypes } from 'src/constants/propTypes';
 import styles from 'src/screens/newsStack/News/styles';
-import { getUserData } from 'src/store/selectors';
+import {
+  checkIfLoadingSelector,
+  checkIfRefreshingSelector,
+  updatingItemIdSelector,
+  userDataSelector
+} from 'src/store/selectors';
+import { newsActionTypes } from 'src/constants/actionTypes';
 
 const entriesPerPage = 5;
-// let yOffset = 0;
 const News = props => {
-  const [allNews, setAllNews] = useState({});
+  const newsIdFromNotification = props.navigation.getParam('newsIdFromNotification');
+  const { news, userData, isLoading, refreshing, deletingNewsId } = props;
+  const { isAuthenticated, displayName } = userData;
+  const { cachedNews, error } = news;
   const [pagedNews, setPagedNews] = useState({});
-  const [fetchError, setFetchError] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [pagination, setPagination] = useState({
     first: false,
     last: false,
-    pageNumber: 0,
+    currentPage: 0,
     totalPages: 0
   });
-  const mounted = useRef(false);
   const scrollRef = useRef(null);
-  const [refreshing, setRefreshing] = useState(false);
+
+  HooksUtils.useDidMount(props.fetchNews);
 
   useEffect(() => {
-    fetchNews();
-  }, []);
-
-  // TODO neman pojma zasto ovako
-  //ovaj me zajebava, ako stavim dependency array stalno se rendera
-  // ovo je trebalo bit na did update
-  useEffect(() => {
-    if (!mounted.current) {
-      mounted.current = true;
-    } else {
-      let newNews = { ...allNews };
-      const key = props.news.key;
-      newNews[key] = props.news;
-      setAllNews(newNews);
-    }
-  }, []);
-
-  const { togglePopupMessage } = props;
-  const fetchNews = useCallback(async () => {
-    if (await AppUtils.isConnectedToInternet()) {
-      try {
-        const response = await ApiService.getNews();
-        const totalEntries = Object.keys(response).length;
-        const pagination = AppUtils.calculatePagingation(totalEntries, entriesPerPage, 0);
-        setPagination(pagination);
-        setAllNews(response || {});
-        setPagedNews(ObjectUtils.getSubObject(response, pagination.pageNumber * entriesPerPage, entriesPerPage));
-      } catch (error) {
-        console.log('News fetchNews', error);
-        setFetchError(true);
-      } finally {
-        setIsLoading(false);
-        setRefreshing(false);
-      }
-    } else {
-      togglePopupMessage(locales.noInternet);
-      setIsLoading(false);
-      setFetchError(true);
-    }
-  }, [togglePopupMessage]);
+    const totalEntries = Object.keys(cachedNews).length;
+    const pagination = AppUtils.calculatePagination(totalEntries, entriesPerPage, 0);
+    setPagination(pagination);
+    setPagedNews(ObjectUtils.getSubObject(cachedNews, pagination.currentPage * entriesPerPage, entriesPerPage));
+  }, [cachedNews]);
 
   const onRefresh = useCallback(() => {
-    setRefreshing(true);
-    fetchNews();
-  }, [fetchNews]);
+    const refreshing = true;
+    props.fetchNews(refreshing);
+  }, [props]);
 
   const changePage = pageNum => {
-    const totalEntries = Object.keys(allNews).length;
-    const pagination = AppUtils.calculatePagingation(totalEntries, entriesPerPage, pageNum);
+    const totalEntries = Object.keys(cachedNews).length;
+    const pagination = AppUtils.calculatePagination(totalEntries, entriesPerPage, pageNum);
     setPagination(pagination);
-    setPagedNews(ObjectUtils.getSubObject(allNews, pagination.pageNumber * entriesPerPage, entriesPerPage));
+    setPagedNews(ObjectUtils.getSubObject(cachedNews, pagination.currentPage * entriesPerPage, entriesPerPage));
   };
 
   const deleteNewsAlert = async newsId => {
@@ -102,70 +74,75 @@ const News = props => {
     );
   };
 
-  const deleteNews = async newsId => {
-    if (await AppUtils.isConnectedToInternet()) {
-      try {
-        const response = await ApiService.deleteNews(newsId);
-        await fetchNews();
-      } catch (error) {
-        console.log('deleteNotice error', error);
-      }
-    }
+  const deleteNews = newsId => {
+    props.deleteNews(newsId);
   };
 
   const editNews = newsId => {
-    const newsBeforeEdit = allNews[newsId];
-    NavigationService.navigate(screenNames.NEWS_PUBLISH, { newsBeforeEdit });
+    const newsBeforeEdit = cachedNews[newsId];
+    NavigationService.navigate(screenNames.NEWS_PUBLISH, { newsId, newsBeforeEdit, displayName });
   };
-  const { user } = props;
-  const { isAuthenticated } = user;
-  const keyFromNotification = props.navigation.getParam('keyFromNotification');
-  if (isLoading) {
-    return <Loader />;
+
+  //RENDER
+  let content = null;
+  if (isLoading && !refreshing) {
+    content = <Loader text={locales.loadingNews} />;
+  } else if (ObjectUtils.isEmpty(cachedNews) && !error) {
+    content = <NoNews />;
+  } else if (error && !ObjectUtils.isEmpty(cachedNews)) {
+    content = <Error404 />;
+  } else {
+    const { currentPage, totalPages } = pagination;
+    const pagingButtons = AppUtils.calculatePagingButtons(totalPages, currentPage);
+    content = (
+      <>
+        <AddNewsButton {...{ isAuthenticated, displayName }} />
+        <NewsList
+          {...{ pagedNews, isAuthenticated, deletingNewsId, newsIdFromNotification, editNews, deleteNewsAlert }}
+        />
+        <PagingButtons onPress={changePage} {...{ currentPage, pagingButtons }} />
+      </>
+    );
   }
-  if (fetchError) {
-    return <Error404 />;
-  }
-  if (ObjectUtils.isEmpty(allNews)) {
-    return <NoNews />;
-  }
-  const { first, last, pageNumber, totalPages } = pagination;
   return (
     <ScrollView
       contentContainerStyle={styles.container}
-      centerContent
       ref={scrollRef}
-      // onScroll={event => {
-      //   yOffset = event.nativeEvent.contentOffset.y;
-      // }}
       onContentSizeChange={() => {
-        // scrollRef.current.scrollTo({ x: 0, y: yOffset, animated: true }); //maintain scroll position
         scrollRef.current.scrollTo({ x: 0, y: 0, animated: true }); //scroll to top
       }}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
-      <AddNewsButton isAuthenticated={isAuthenticated} />
-      <NewsList {...{ pagedNews, isAuthenticated, keyFromNotification, editNews, deleteNewsAlert }} />
-      <PagingButtons onPress={changePage} {...{ first, last, pageNumber, totalPages }} />
+      {content}
     </ScrollView>
   );
 };
 
 News.propTypes = {
-  user: userPropTypes.isRequired,
-  news: newsPropTypes.isRequired,
-  togglePopupMessage: PropTypes.func.isRequired
+  userData: userPropTypes.isRequired,
+  news: newsReducerPropTypes.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  refreshing: PropTypes.bool.isRequired,
+  deletingNewsId: PropTypes.string,
+  togglePopupMessage: PropTypes.func.isRequired,
+  fetchNews: PropTypes.func.isRequired,
+  deleteNews: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  user: getUserData(state),
-  news: state.news
+  userData: userDataSelector(state),
+  news: state.news,
+  deletingNewsId: updatingItemIdSelector(state)(newsActionTypes.DELETE_NEWS),
+  isLoading: checkIfLoadingSelector(state)([newsActionTypes.FETCH_NEWS]),
+  refreshing: checkIfRefreshingSelector(state)(newsActionTypes.FETCH_NEWS)
 });
 
 const mapDispatchToProps = {
-  togglePopupMessage
+  togglePopupMessage,
+  fetchNews,
+  deleteNews
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(News);
+)(React.memo(News));

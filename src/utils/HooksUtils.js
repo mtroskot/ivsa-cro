@@ -1,12 +1,47 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-const useDidUpdateEffect = (func, deps) => {
-  const didUpdate = useRef(false);
+function useDidMount(callback) {
+  useEffect(() => {
+    callback();
+  }, []);
+}
+
+function useDidUpdate(callback, deps, clearCallback) {
+  const didMount = useRef(false);
 
   useEffect(() => {
-    if (didUpdate.current) func();
-    else didUpdate.current = true;
-  }, [func, deps]);
-};
+    if (didMount.current) {
+      callback();
+      if (clearCallback) {
+        return clearCallback;
+      }
+    } else {
+      didMount.current = true;
+    }
+  }, deps);
+}
 
-export default useDidUpdateEffect;
+function useDebounce(callback, deps, timeout = 500, clearCallback) {
+  const hasMount = useRef(false);
+  useEffect(() => {
+    if (hasMount.current) {
+      const handler = setTimeout(() => {
+        callback();
+      }, timeout);
+      return () => {
+        if (clearCallback) {
+          clearCallback();
+        }
+        clearTimeout(handler);
+      };
+    } else {
+      hasMount.current = true;
+    }
+  }, deps);
+}
+
+export default {
+  useDidMount,
+  useDebounce,
+  useDidUpdate
+};

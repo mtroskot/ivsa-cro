@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News actions tests dispatches deleteNews action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "newsId": "newsId",
+    },
+    "type": "DELETE_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNews action 1 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "refreshing": false,
+    },
+    "type": "FETCH_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNews action 2 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "refreshing": false,
+    },
+    "type": "FETCH_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNews action 3 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "refreshing": null,
+    },
+    "type": "FETCH_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNews action 4 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "refreshing": false,
+    },
+    "type": "FETCH_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNews action 5 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "refreshing": true,
+    },
+    "type": "FETCH_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNewsError action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "error": "error",
+    },
+    "type": "FETCH_NEWS_ERROR",
+  },
+]
+`;
+
+exports[`News actions tests dispatches fetchNewsSuccess action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "lastUpdate": 0,
+      "news": Object {},
+    },
+    "type": "FETCH_NEWS_SUCCESS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches publishNews action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "date": "date",
+      "notice": "notice",
+      "publishedBy": "publishedBy",
+    },
+    "type": "PUBLISH_NEWS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches publishNewsSuccess action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "lastUpdate": 0,
+      "news": Object {},
+    },
+    "type": "PUBLISH_NEWS_SUCCESS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches publishNewsSuccess action 2`] = `
+Array [
+  Object {
+    "payload": Object {
+      "lastUpdate": 0,
+      "news": Object {},
+    },
+    "type": "UPDATE_NEWS_SUCCESS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches publishNewsSuccess action 3`] = `
+Array [
+  Object {
+    "payload": Object {
+      "lastUpdate": 0,
+      "news": Object {},
+    },
+    "type": "DELETE_NEWS_SUCCESS",
+  },
+]
+`;
+
+exports[`News actions tests dispatches updateNews action 1`] = `
+Array [
+  Object {
+    "payload": Object {
+      "date": "date",
+      "newsId": "newsId",
+      "notice": "notice",
+      "publishedBy": "publishedBy",
+    },
+    "type": "UPDATE_NEWS",
+  },
+]
+`;

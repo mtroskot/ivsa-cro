@@ -1,6 +1,6 @@
 import { put, takeLeading } from '@redux-saga/core/effects';
 import { changeLocaleSuccess } from 'src/store/actions/localeActions';
-import { localeActions } from 'src/constants/store/actionTypes';
+import { localeActionTypes } from 'src/constants/actionTypes';
 import locales from 'src/constants/localization';
 
 export function* changeLocaleSaga({ payload }) {
@@ -14,5 +14,5 @@ export function* changeLocaleSaga({ payload }) {
 }
 
 export function* watchChangeLocaleSaga() {
-  yield takeLeading(localeActions.CHANGE_LOCALE, changeLocaleSaga);
+  yield takeLeading(localeActionTypes.CHANGE_LOCALE, changeLocaleSaga);
 }

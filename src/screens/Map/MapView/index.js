@@ -8,7 +8,7 @@ import mapStyles from 'src/screens/Map/styles';
 
 const generateAnnotations = selectedOption => {
   return pointAnnotations[selectedOption].map(annotation => {
-    const key = '' + selectedOption + annotation.subIndex;
+    const key = `${selectedOption}${annotation.subIndex}`;
     return (
       <Mapbox.PointAnnotation key={key} id={key} coordinate={annotation.coordinate}>
         <View style={styles.annotationContainer}>

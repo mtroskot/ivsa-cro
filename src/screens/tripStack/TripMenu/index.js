@@ -6,7 +6,7 @@ import { NavigationService } from 'src/services';
 import styles from 'src/screens/tripStack/TripMenu/styles';
 import { screenNames } from 'src/constants/navigation';
 
-const TripDescription = props => (
+const TripDescription = () => (
   <FlatList
     data={tripData}
     renderItem={({ item }) => {
@@ -28,6 +28,7 @@ const TripDescription = props => (
         </View>
       );
     }}
+    keyExtractor={item => item.key}
   />
 );
 

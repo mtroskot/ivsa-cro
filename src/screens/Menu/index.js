@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import { Linking, ScrollView, View } from 'react-native';
 import MenuButtons from 'src/screens/Menu/MenuButtons';
-import { HeaderLeftButton } from 'src/components';
+import { IconButton } from 'src/components';
 import { connect } from 'react-redux';
 // import OneSignal from 'react-native-onesignal';
-// import { ONESIGNAL_APP_ID } from 'src/constants/onesignal';
+// import { ONESIGNAL_APP_ID } from 'src/constants/keys';
 import { AppUtils } from 'src/utils';
 import { ApiService, NavigationService } from 'src/services';
 import { screenNames } from 'src/constants/navigation';
@@ -12,7 +12,8 @@ import { icons } from 'src/constants/icons';
 import { menuList } from 'src/constants/menu';
 import PropTypes from 'prop-types';
 import styles from 'src/screens/Menu/styles';
-import { getCurrLocale } from 'src/store/selectors';
+import { currLocaleSelector } from 'src/store/selectors';
+import { bookletRequests } from 'src/services/api';
 
 const Menu = props => {
   // constructor(props) {
@@ -24,45 +25,46 @@ const Menu = props => {
   // }
 
   const goToBooklet = useCallback(async () => {
-    if (AppUtils.isConnectedToInternet()) {
-      try {
-        const bookletUrl = await ApiService.getBookletUrl();
-        if (bookletUrl) {
-          Linking.openURL(bookletUrl);
-        } else {
-          alert('Could not open booklet\nTry again later');
-        }
-      } catch (error) {
-        console.log('Menu goToBooklet error', error);
+    try {
+      const bookletUrl = await ApiService.callApiAndCheckResponse(bookletRequests.getBookletUrl());
+      if (bookletUrl) {
+        Linking.openURL(bookletUrl);
+      } else {
+        alert('Could not open booklet\nTry again later');
       }
+    } catch (error) {
+      console.log('Menu goToBooklet error', error);
     }
   }, []);
 
-  const onMenuPress = useCallback(menuId => {
-    switch (menuId) {
-      case screenNames.NEWS:
-        NavigationService.navigate(screenNames.NEWS);
-        break;
-      case screenNames.CONGRESS:
-        NavigationService.navigate(screenNames.CONGRESS);
-        break;
-      case screenNames.MAP:
-        NavigationService.navigate(screenNames.MAP);
-        break;
-      case screenNames.TRIP_MENU:
-        NavigationService.navigate(screenNames.TRIP_MENU);
-        break;
-      case screenNames.FLOOR_PLAN:
-        NavigationService.navigate(screenNames.FLOOR_PLAN);
-        break;
-      case screenNames.CONTACTS:
-        NavigationService.navigate(screenNames.CONTACTS);
-        break;
-      case 'booklet':
-        goToBooklet();
-        break;
-    }
-  }, []);
+  const onMenuPress = useCallback(
+    menuId => {
+      switch (menuId) {
+        case screenNames.NEWS:
+          NavigationService.navigate(screenNames.NEWS);
+          break;
+        case screenNames.CONGRESS:
+          NavigationService.navigate(screenNames.CONGRESS);
+          break;
+        case screenNames.MAP:
+          NavigationService.navigate(screenNames.MAP);
+          break;
+        case screenNames.TRIP_MENU:
+          NavigationService.navigate(screenNames.TRIP_MENU);
+          break;
+        case screenNames.FLOOR_PLAN:
+          NavigationService.navigate(screenNames.FLOOR_PLAN);
+          break;
+        case screenNames.CONTACTS:
+          NavigationService.navigate(screenNames.CONTACTS);
+          break;
+        case 'booklet':
+          goToBooklet();
+          break;
+      }
+    },
+    [goToBooklet]
+  );
 
   // onNotificationOpen = openResult => {
   //   let noticeId = openResult.notification.payload.additionalData
@@ -75,6 +77,7 @@ const Menu = props => {
   // componentWillUnmount() {
   //   OneSignal.removeEventListener('opened', this.onNotificationOpen);
   // }
+  //RENDER
   const { currLocale } = props;
   return (
     <View style={styles.container}>
@@ -91,12 +94,8 @@ Menu.propTypes = {
   currLocale: PropTypes.string.isRequired
 };
 
-Menu.navigationOptions = () => ({
-  headerLeft: () => <HeaderLeftButton iconName={icons.MENU} onPress={NavigationService.openDrawer} />
-});
-
 const mapStateToProps = state => ({
-  currLocale: getCurrLocale(state)
+  currLocale: currLocaleSelector(state)
 });
 
 export default connect(

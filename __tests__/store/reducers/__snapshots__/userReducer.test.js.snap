@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AUTH_USER_ERROR_STATE 1returns initial state 1`] = `
+Object {
+  "error": "error",
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;
+
+exports[`AUTH_USER_ERROR_STATE 2returns authenticateUserSuccess state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": "displayName2",
+    "email": "email2",
+    "expiryDate": "expiryDate2",
+    "idToken": "idToken2",
+    "isAuthenticated": true,
+  },
+}
+`;
+
+exports[`AUTH_USER_ERROR_STATE 3returns authenticateUserError state 1`] = `
+Object {
+  "error": "error2",
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;
+
+exports[`AUTH_USER_ERROR_STATE 4returns logout state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;
+
+exports[`AUTH_USER_SUCCESS_STATE 1returns initial state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": "displayName",
+    "email": "email",
+    "expiryDate": "expiryDate",
+    "idToken": "idToken",
+    "isAuthenticated": true,
+  },
+}
+`;
+
+exports[`AUTH_USER_SUCCESS_STATE 2returns authenticateUserSuccess state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": "displayName2",
+    "email": "email2",
+    "expiryDate": "expiryDate2",
+    "idToken": "idToken2",
+    "isAuthenticated": true,
+  },
+}
+`;
+
+exports[`AUTH_USER_SUCCESS_STATE 3returns authenticateUserError state 1`] = `
+Object {
+  "error": "error",
+  "userData": Object {
+    "displayName": "displayName",
+    "email": "email",
+    "expiryDate": "expiryDate",
+    "idToken": "idToken",
+    "isAuthenticated": true,
+  },
+}
+`;
+
+exports[`AUTH_USER_SUCCESS_STATE 4returns logout state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;
+
+exports[`INITIAL_STATE 1returns initial state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;
+
+exports[`INITIAL_STATE 2returns authenticateUserSuccess state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": "displayName",
+    "email": "email",
+    "expiryDate": "expiryDate",
+    "idToken": "idToken",
+    "isAuthenticated": true,
+  },
+}
+`;
+
+exports[`INITIAL_STATE 3returns authenticateUserError state 1`] = `
+Object {
+  "error": "error",
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;
+
+exports[`INITIAL_STATE 4returns logout state 1`] = `
+Object {
+  "error": null,
+  "userData": Object {
+    "displayName": null,
+    "email": null,
+    "expiryDate": null,
+    "idToken": null,
+    "isAuthenticated": false,
+  },
+}
+`;

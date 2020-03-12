@@ -9,12 +9,14 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   inputContainer: {
-    width: '85%'
+    width: '85%',
+    marginTop: 20 * rem
   },
   input: {
     backgroundColor: '#fff',
     borderColor: '#bbb',
-    height: 200 * rem,
+    minHeight: '20%',
+    maxHeight: '80%',
     textAlignVertical: 'top'
   },
   buttonContainer: {

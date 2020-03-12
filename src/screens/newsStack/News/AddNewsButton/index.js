@@ -8,13 +8,13 @@ import PropTypes from 'prop-types';
 import styles from 'src/screens/newsStack/News/AddNewsButton/styles';
 
 const AddNewsButton = props => {
-  const { isAuthenticated } = props;
+  const { isAuthenticated, displayName } = props;
   if (isAuthenticated) {
     return (
       <View style={styles.addNewsButtonView}>
         <CustomButton
           text={locales.newNotice}
-          onPress={() => NavigationService.navigate(screenNames.NEWS_PUBLISH)}
+          onPress={() => NavigationService.navigate(screenNames.NEWS_PUBLISH, { displayName })}
           viewStyle={styles.addNewsButton}
           textStyle={styles.addNewsButtonText}
         />
@@ -25,7 +25,8 @@ const AddNewsButton = props => {
 };
 
 AddNewsButton.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired
+  isAuthenticated: PropTypes.bool.isRequired,
+  displayName: PropTypes.string
 };
 
 export default React.memo(AddNewsButton);

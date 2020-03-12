@@ -7,11 +7,13 @@ const styles = StyleSheet.create({
     width: '90%',
     borderWidth: 1,
     borderColor: 'black',
-    padding: 10 * rem,
-    marginBottom: 20 * rem
+    marginVertical: 20 * rem
   },
   firstNews: {
     marginTop: 20 * rem
+  },
+  newsText: {
+    padding: 10 * rem
   },
   highlightedNews: {
     borderColor: 'red',

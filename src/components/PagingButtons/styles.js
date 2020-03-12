@@ -5,19 +5,24 @@ const { rem } = dimensions;
 const styles = StyleSheet.create({
   bottomPositionView: {
     flexGrow: 1,
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    marginVertical: 20 * rem
   },
   paginationView: {
     flexDirection: 'row',
-    marginTop: 15 * rem,
     justifyContent: 'center'
   },
   customButton: {
-    marginTop: 20 * rem,
     backgroundColor: '#f4f4f4',
     padding: 10 * rem,
     borderRadius: 5 * rem,
     borderWidth: 1
+  },
+  buttonSelected: {
+    backgroundColor: '#bababa'
+  },
+  buttonUnselected: {
+    backgroundColor: '#f4f4f4'
   }
 });
 export default styles;
